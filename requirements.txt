@@ -1,0 +1,13 @@
+systemtools
+wheel
+requests
+bs4
+numpy
+pandas
+pybind11
+nltk
+networkx
+gensim
+sklearn
+scipy
+pylcs
