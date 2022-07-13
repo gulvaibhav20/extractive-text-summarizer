@@ -24,7 +24,6 @@
         <li><a href="#prerequisites">Prerequisites</a></li>
       </ul>
     </li>
-    <li><a href="#flow-of-the-process">Flow of the Process</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#license">LICENSE</a></li>
   </ol>
@@ -64,25 +63,6 @@ Just ***clone*** this repository to get started. Follow the steps to get a local
   ```
   pip install -r requirements.txt
   ```
-
-## Flow of the Process
-
-<p align="center">
-  <img src="assets/flowchart.png" alt="Extractive Summarizer methodology flowchart" />
-</p>
-<center><strong> Project Methodology </strong></center> <br />
-
-<div style="text-align: justify">
-
-- Retrieval of textual data from the article source.
-- Data preprocessing via Stopword Removal, Tokenization, POS Tagging, and Lemmatization.
-- Calculation of similarity between each sentence pair  
-- Graph Formation considering each sentence as a node and similarity as edge weight.
-- Ranking each sentence via modified TextRank algorithm.
-- Selecting top 20% sentences to generate summary.
-</div>
-
-<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Contact
 
