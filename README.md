@@ -4,8 +4,7 @@
     <img src="assets/logo.jpg" alt="Logo" width="100" height="100">
   </a>
   <div align="center">
-    <h3> Extractive Article Summarizer</h3>
-    <h5> [Using Integrated Text Rank and BM25+ Algorithm] </h5>
+    <h3> Article Summarizer</h3>
   </div>
 </div>
 
