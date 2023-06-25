@@ -8,6 +8,7 @@ pybind11
 nltk
 networkx
 gensim
-sklearn
+scikit-learn
 scipy
 pylcs
+rank_bm25
