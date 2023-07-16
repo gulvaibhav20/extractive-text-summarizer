@@ -15,6 +15,9 @@ def validate_configuration(config_dict):
     
     if config_dict.get("input_type") not in constant.INPUT_TYPE_SET:
         return "Invalid input_type configuration setting"
+    
+    if config_dict.get("output_type") not in constant.OUTPUT_TYPE_SET:
+        return "Invalid output_type configuration setting"
 
     return "success"
 
@@ -32,11 +35,17 @@ def get_config():
     input_path = config.get('Custom-Run', 'input_path')
     algorithm = config.get('Custom-Run', 'algorithm')
 
+    # Read values from the 'Output' section
+    output_type = config.get('Output', 'output_type')
+    output_path = config.get('Output', 'output_path')
+
     # Preparing the Configuration Dict
     config_dict["trial_run"] = trial_run
     config_dict["file_path"] = trial_run_input if (trial_run) else input_path
     config_dict["algorithm"] = algorithm
     config_dict["input_type"] = constant.INPUT_TYPE_FILE if (trial_run) else input_type
+    config_dict["output_type"] = output_type
+    config_dict["output_path"] = output_path
 
     # Display for Configuration settings
     print("\n\nRunning using the following User Configurations : ")
@@ -48,11 +57,14 @@ def get_config():
         print(f"--> INPUT-TYPE = {input_type}")
         print(f"--> ALGORITHM  = {algorithm}")
         print(f"--> FILE_PATH / URL = {input_path}")
+    
+    print(f"--> OUTPUT-TYPE = {output_type}")
+    print(f"--> OUTPUT-PATH = {output_path}")
 
     # Validating Configuration
     message = validate_configuration(config_dict)
     if(message != "success"):
-        print(f"ERROR: {message}")
+        print(f"\nERROR: {message}")
         sys.exit(0)
 
     return config_dict
@@ -89,7 +101,7 @@ def main():
         algorithm = constant.PROPOSED_ALGORITHM if config_dict.get("trial_run") else config_dict.get('algorithm')
         print(f"Summarizing the text using {algorithm} algorithm")
         summary = summarization.summarize(text=text, algorithm=algorithm)
-        print("\nSummary :\n", summary)
+        summarization.write_output(config_dict, summary)
 
     except Exception as e:
         print(f"ERROR: {e}")

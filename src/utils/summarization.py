@@ -174,3 +174,18 @@ def summarize (text, algorithm = constant.PROPOSED_ALGORITHM, iterations = const
 
     summary = "\n".join(text_list)
     return summary
+
+
+def write_output(config_dict, summary):
+    if(config_dict.get("output_type") == constant.OUTPUT_TYPE_DISPLAY):
+        print("\nGenerated Summary :\n", summary)
+
+    elif(config_dict.get("output_type") == constant.OUTPUT_TYPE_FILE):
+        output_path = config_dict.get("output_path")
+        with open(output_path, 'w', encoding='utf-8') as file:
+            file.write(summary)
+
+        print(f"The generated summary has been saved to the file: {output_path}")
+
+    else:
+        return -1
