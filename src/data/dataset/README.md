@@ -1,7 +1,7 @@
 # Medium Article Dataset For Extractive Text Summarization
 
 ## Author
-Vaibhav Gulati, Srijan Dwivedi, Deepika Kumar, Jatin Wadhwa, Devaansh Dhingra <br>
+Vaibhav Gulati, Deepika Kumar <br>
 **(Department of Computer Science and Engineering, Bharati Vidyapeeth’s College of Engineering, New Delhi 110063, India)**
 
 ## Contact
@@ -28,11 +28,11 @@ The dataset contains 75 articles that belongs to a variety of different categori
 |-----------------------------|:-------------------------------------------------:|
 | Title                       | Title of the article                              |
 | Sub_Title                   | Sub-title of the article                          |
-|	Text                        | The textual content of the article                |
+|	Text                      | The textual content of the article                |
 | Word_Count                  | Number of Words present in article                |
 | Category                    | Genre of the article                              |
 | Author                      | Author of the article                             |
-|	URL                         | Medium link for the article                       |
+|	URL                       | Medium link for the article                       |
 | Human Generated Summary     | Human generated extractive summary of the article |
 
 ## Dataset Usage
