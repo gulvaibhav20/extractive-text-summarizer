@@ -12,3 +12,5 @@ scikit-learn
 scipy
 pylcs
 rank_bm25
+rouge-score
+prettytable

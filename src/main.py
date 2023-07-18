@@ -2,7 +2,7 @@
 #--------------------------------------------#
 
 import configparser, requests, bs4, sys
-from utils import constant, summarization
+from utils import constant, summarization, rouge
 from os.path import abspath
 import nltk
 
@@ -18,6 +18,9 @@ def validate_configuration(config_dict):
     
     if config_dict.get("output_type") not in constant.OUTPUT_TYPE_SET:
         return "Invalid output_type configuration setting"
+    
+    if type(config_dict.get("rouge_score")) is not bool:
+         return "Invalid rouge_score configuration setting"
 
     return "success"
 
@@ -35,6 +38,11 @@ def get_config():
     input_path = config.get('Custom-Run', 'input_path')
     algorithm = config.get('Custom-Run', 'algorithm')
 
+    # Read values from the 'Rouge-Score' section
+    rouge_score_generation = config.getboolean('Rouge-Score', 'is_enabled')
+    human_generated_summary_path = config.get('Rouge-Score', 'human_generated_summary_path')
+    machine_generated_summary_path = config.get('Rouge-Score', 'machine_generated_summary_path')
+
     # Read values from the 'Output' section
     output_type = config.get('Output', 'output_type')
     output_path = config.get('Output', 'output_path')
@@ -44,6 +52,9 @@ def get_config():
     config_dict["file_path"] = trial_run_input if (trial_run) else input_path
     config_dict["algorithm"] = algorithm
     config_dict["input_type"] = constant.INPUT_TYPE_FILE if (trial_run) else input_type
+    config_dict["rouge_score"] = rouge_score_generation
+    config_dict["human_generated_summary_path"] = human_generated_summary_path
+    config_dict["machine_generated_summary_path"] = machine_generated_summary_path
     config_dict["output_type"] = output_type
     config_dict["output_path"] = output_path
 
@@ -60,6 +71,9 @@ def get_config():
     
     print(f"--> OUTPUT-TYPE = {output_type}")
     print(f"--> OUTPUT-PATH = {output_path}")
+    print(f"--> ROUGE-SCORE = {rouge_score_generation}")
+    print(f"--> HUMAN GENERATED SUMMARY = {human_generated_summary_path}")
+    print(f"--> MACHINE GENERATED SUMMARY = {machine_generated_summary_path}")
 
     # Validating Configuration
     message = validate_configuration(config_dict)
@@ -102,6 +116,10 @@ def main():
         print(f"Summarizing the text using {algorithm} algorithm")
         summary = summarization.summarize(text=text, algorithm=algorithm)
         summarization.write_output(config_dict, summary)
+
+        # ROUGE-SCORE Evaluation
+        if(config_dict.get("rouge_score")):
+            rouge.calculate_rouge(config_dict.get("human_generated_summary_path"), config_dict.get("machine_generated_summary_path"))
 
     except Exception as e:
         print(f"ERROR: {e}")
