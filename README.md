@@ -11,7 +11,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
+  <a href="https://github.com/gulvaibhav20/extractive-text-summarizer" target="_blank">
     <img src="assets/logo.png" alt="Logo" width="120" height="120">
   </a>
   <h3 align="center"><strong> Extractive Text Summarizer </strong></h3>
