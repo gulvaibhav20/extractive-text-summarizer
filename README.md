@@ -12,7 +12,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/gulvaibhav20/extractive-text-summarizer" target="_blank">
-    <img src="assets/logo.png" alt="Logo" width="120" height="120">
+    <img src="./images/logo.png" alt="Logo" width="120" height="120">
   </a>
   <h3 align="center"><strong> Extractive Text Summarizer </strong></h3>
   <p align="center">
@@ -174,8 +174,8 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 [linkedin-shield]: https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white
 [linkedin-url]: https://www.linkedin.com/in/vaibhav-gulati/
 
-[product-screenshot]: assets/screenshot.png
+[product-screenshot]: ./images/screenshot.png
 [Python.com]: https://img.shields.io/badge/Built%20With%20Python-3776AB?style=for-the-badge&logo=python&logoColor=white
 [Python-url]: https://www.python.org/
-[summarization-process]: assets/flowchart.png
+[summarization-process]: ./images/flowchart.png
 [config-readme]: https://github.com/gulvaibhav20/extractive-text-summarizer/tree/main/src

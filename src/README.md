@@ -49,4 +49,4 @@ This configuration allows the user to select the output type for the summarizati
 <hr>
 
 <!-- MARKDOWN LINKS & IMAGES -->
-[config-screenshot]: data/assets/config.png
+[config-screenshot]: ./data/images/config.png
